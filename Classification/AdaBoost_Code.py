@@ -966,14 +966,14 @@ def data_preprocessing_2_R(dataset_2_R,test_size,seed,verbose=False):
 if __name__ == '__main__':
 
     # Import dataset using raw string to avoid problems with syntax
-    data = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset.csv'
-    data_10_24 = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_10_24.csv'
-    data_24_R = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_24_R.csv'
-    data_10_R = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_10_R.csv'
-    data_G_2 = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_G_2.csv'
-    data_2_10 = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_2_10.csv'
-    data_G_R = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_G_R.csv'
-    data_2_R = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_2_R.csv'
+    data = INSERT HERE THE PATH OF YOUR DATASET
+    data_10_24 = INSERT HERE THE PATH OF YOUR DATASET
+    data_24_R = INSERT HERE THE PATH OF YOUR DATASET
+    data_10_R = INSERT HERE THE PATH OF YOUR DATASET
+    data_G_2 = INSERT HERE THE PATH OF YOUR DATASET
+    data_2_10 = INSERT HERE THE PATH OF YOUR DATASET
+    data_G_R = INSERT HERE THE PATH OF YOUR DATASET
+    data_2_R = INSERT HERE THE PATH OF YOUR DATASET
     
     # Project-related inputs, to set
     parser = argparse.ArgumentParser(description="main")
@@ -1047,4 +1047,5 @@ if __name__ == '__main__':
     X_2_R,Y_2_R,X_2_R_train,X_2_R_test,Y_2_R_train,Y_2_R_test = data_preprocessing_2_R(dataset_2_R=data_2_R, verbose=False,test_size=0.2,seed=args.random_seed)
     decision_tree_base, svm_base=AdaBoost_crossval(dataset_training=X_2_R_train, labels_training=Y_2_R_train,kernel="rbf",C=10,gamma=0.001,max_depth=4, min_samples_leaf=2, max_leaf_nodes=5,min_samples_split=2,criterion="gini", random_state=0, data_type=f"no dim red 2_R together, with seed {args.random_seed}",verbose=False)
     # AdaBoost classification
+
     AdaBoost_classification(dataset_training=X_2_R_train, labels_training=Y_2_R_train, dataset_test=X_2_R_test,labels_test=Y_2_R_test,estimator= decision_tree_base,n_estimators=10,learning_rate=1, data_type=f"no dim red 2_R together, with seed {args.random_seed}", verbose=False,see_plots=False,save_plots=True,confusion_mat=False,accuracy_per_class=True)
