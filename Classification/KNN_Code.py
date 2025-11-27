@@ -470,7 +470,7 @@ def knn_classification(data_train, labels_train, data_test, labels_test, best_k,
 if __name__ == '__main__':
     
     # Import dataset using raw string to avoid problems with syntax
-    data = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset.csv'
+    data = INSERT HERE THE PATH OF YOUR DATASET'
 
     # Project-related inputs, to set
     parser = argparse.ArgumentParser(description="main")
@@ -507,4 +507,5 @@ if __name__ == '__main__':
     # Cross-validation with P dimensionality reduction
     knn_crossvalidation(XP_train,Y_train,data_type=f'P dim reduction, seed {args.random_seed}',Choose_k=False,see_plots=False, save_plots=True)
     # KNN with P dimensionality reduction
+
     knn_classification(XP_train,Y_train,XP_test,Y_test,best_k=8,data_type=f'P dim reduction, seed {args.random_seed}', verbose=True,see_plots=False, save_plots=True)
