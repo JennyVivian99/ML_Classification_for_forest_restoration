@@ -400,7 +400,7 @@ def kmeans_clustering(data, n_clusters, seed, verbose=False, contingencyTable=Tr
 
 if __name__ == '__main__':
 
-    data = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset.csv'
+    data = INSERT PATH OF YOUR DATASET LOCATION
 
     # Project-related inputs, to set
     parser = argparse.ArgumentParser(description="main")
@@ -439,4 +439,5 @@ if __name__ == '__main__':
     FindClustersNumber(XPCA,see_plots=True,data_type=f"PCA reduction, seed {args.random_seed}") # Find the right number of clusters with the elbow method
     # Three clusters seems the right number to run the k-means
     # K-means with dimensionality reduction and 3 clusters
+
     kmeans_clustering(XPCA, 3, seed=args.random_seed, verbose=True, contingencyTable=True, see_plots=True, data_type=f"PCA reduction, seed {args.random_seed}")
