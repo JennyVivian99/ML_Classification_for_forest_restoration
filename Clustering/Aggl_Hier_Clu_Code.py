@@ -411,8 +411,7 @@ def aggl_clust_skl(dataset, method, data_type, max_d, n_clusters, contingencyTab
         plt.savefig(f"Agg_hier_clust_plots/Agg_Hier_clust_{data_type}_{method}_landcover_labels.png")
 
 if __name__ == '__main__':
-    data = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset.csv'
-
+    data = INSERT PATH OF YOUR DATASET LOCATION
     # Project-related inputs, to set
     parser = argparse.ArgumentParser(description="main")
     parser.add_argument('--random_seed', type=int, default=3, help = 'Random seed to be set.') #run with 0,1,2,3
@@ -442,4 +441,5 @@ if __name__ == '__main__':
     # AHC with PCA dimensionality reduction and average linkage
     aggl_clust_skl(XPCA,method="average",contingencyTable=True,verbose=True,data_type=f"PCA dim reduction, seed {args.random_seed}",max_d=None,n_clusters=2, see_plots=False, save_plots=True)
     # AHC with PCA dimensionality reduction and Ward's linkage
+
     aggl_clust_skl(XPCA,method="ward",contingencyTable=True,verbose=True,data_type=f"PCA dim reduction, seed {args.random_seed}",max_d=None,n_clusters=2, see_plots=False, save_plots=True)
