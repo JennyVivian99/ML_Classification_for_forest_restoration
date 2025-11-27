@@ -380,7 +380,7 @@ def DBSCAN_cluster(dataset, epsilon, min_samples, see_plots=True, verbose=False,
         print(cross_tab)
 
 if __name__ == '__main__':
-    data = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset.csv'
+    data = INSERT PATH OF YOUR DATASET LOCATION
 
     # Project-related inputs, to set
     parser = argparse.ArgumentParser(description="main")
@@ -419,3 +419,4 @@ if __name__ == '__main__':
     # Retain distance indicated by the elbow, in this case is 0.5, and 4 as minimum number of samples
     # Perform DBSCAN 
     DBSCAN_cluster(XPCA,epsilon=2.75,min_samples=4, see_plots=False, save_plots=True, verbose=True,contingencyTable=True,data_type=f"PCA dim reduction, seed {args.random_seed}")
+
