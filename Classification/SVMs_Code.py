@@ -776,7 +776,7 @@ def SVMs_classification(data_train,labels_train,data_test,labels_test,kernel,dat
 if __name__ == '__main__':
     
     # Import dataset using raw string to avoid problems with syntax
-    data = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset.csv'
+    data = INSERT HERE THE PATH OF YOUR DATASET
 
     # Project-related inputs, to set
     parser = argparse.ArgumentParser(description="main")
@@ -814,4 +814,5 @@ if __name__ == '__main__':
     SVM_crossval(data_train=XP_train,labels_train=Y_train,data_type=f"P dim reduction, with seed {args.random_seed}",verbose=False)
     # SVMs algorithm run with PCA dimansionality reduction
     SVMs_classification(data_train=XP_train,labels_train=Y_train,data_test=XP_test,labels_test=Y_test,kernel='rbf',see_plots=False,data_type=f"P dim reduction, with seed {args.random_seed}",C=10, gamma=0.001,confusion_matrix=True,verbose=True)
+
     
