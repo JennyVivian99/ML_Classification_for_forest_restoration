@@ -907,14 +907,14 @@ def data_preprocessing_2_R(dataset_2_R,test_size,seed,verbose=False):
 if __name__ == '__main__':
     
     # Import dataset using raw string to avoid problems with syntax
-    data = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset.csv'
-    data_10_24 = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_10_24.csv'
-    data_24_R = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_24_R.csv'
-    data_10_R = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_10_R.csv'
-    data_G_2 = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_G_2.csv'
-    data_2_10 = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_2_10.csv'
-    data_G_R = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_G_R.csv'
-    data_2_R = r'C:\Users\j_v072\OneDrive - University of the Sunshine Coast (1)\Dottorato cose\PhD\R_Analyses\SER & Holistic approach article\Reviewed_Holistic_Dataset_2_R.csv'
+    data = INSERT HERE THE PATH OF YOUR DATASET
+    data_10_24 = INSERT HERE THE PATH OF YOUR DATASET
+    data_24_R = INSERT HERE THE PATH OF YOUR DATASET
+    data_10_R = INSERT HERE THE PATH OF YOUR DATASET
+    data_G_2 = INSERT HERE THE PATH OF YOUR DATASET
+    data_2_10 = INSERT HERE THE PATH OF YOUR DATASET
+    data_G_R = INSERT HERE THE PATH OF YOUR DATASET
+    data_2_R = INSERT HERE THE PATH OF YOUR DATASET
     
     # Project-related inputs, to set
     parser = argparse.ArgumentParser(description="main")
@@ -1013,4 +1013,5 @@ if __name__ == '__main__':
     #Decision_tree_crossval (X_2_R_train,Y_2_R_train,0,data_type=f"no dim reduction, with seed {args.random_seed}, 2-R together", verbose=True)
     #Decision_Tree_classification(X_2_R_train, Y_2_R_train, X_2_R_test,Y_2_R_test,
     #                             max_depth=3, min_samples_leaf=4, max_leaf_nodes=4,min_samples_split=2,criterion="entropy", random_state=0,
+
     #                             data_type=f"no dim reduction, with seed {args.random_seed}, 2-R together",confusion_mat=False, verbose=False, see_plots=False, save_plots=True,accuracy_per_class=True)
