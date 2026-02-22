@@ -231,7 +231,7 @@ def variance_tresh_dim_reduction(dataset_original,variance_threshold, verbose=Fa
     ms = MinMaxScaler()
     X_transformed = ms.fit_transform(X)
     X_for_variance = pd.DataFrame(X_transformed, columns=X.columns)
-    variance = np.var(X_for_variance)
+    variance = X_for_variance.var()
     if verbose:
         print("Variance:", variance)
     variance.to_csv("VarianceFeaturesClustering.csv") # Save to Excel file to analyse better and explore the treshold to retain 2, 3, or n number of variables.
@@ -395,7 +395,7 @@ if __name__ == '__main__':
     # Import dataset using raw string to avoid problems with syntax
     X,Y = data_preprocessing(dataset=args.data_path, verbose=False)
     # Dimensionality reduction PCA
-    XPCA = pca_dim_reduction(dataset=X, n_dim=args.n_dims_pca, plots=False)
+    XPCA = pca_dim_reduction(dataset_original=args.data_path, dataset=X,n_dim=args.n_dims_pca, plots=False)
     # Dimensionality reduction VT
     XVT = variance_tresh_dim_reduction(dataset_original=data, variance_threshold=args.var_threshold, verbose=False)
     # DBSCAN without dimensionality reduction
@@ -419,4 +419,5 @@ if __name__ == '__main__':
     # Retain distance indicated by the elbow, in this case is 0.5, and 4 as minimum number of samples
     # Perform DBSCAN 
     DBSCAN_cluster(XPCA,epsilon=2.75,min_samples=4, see_plots=False, save_plots=True, verbose=True,contingencyTable=True,data_type=f"PCA dim reduction, seed {args.random_seed}")
+
 
