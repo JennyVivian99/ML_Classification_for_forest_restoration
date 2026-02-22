@@ -231,7 +231,7 @@ def variance_tresh_dim_reduction(dataset_original,variance_threshold, verbose=Fa
     ms = MinMaxScaler()
     X_transformed = ms.fit_transform(X)
     X_for_variance = pd.DataFrame(X_transformed, columns=X.columns)
-    variance = np.var(X_for_variance)
+    variance = X_for_variance.var()
     if verbose:
         print("Variance:", variance)
     variance.to_csv("VarianceFeaturesClustering.csv") # Save to Excel file to analyse better and explore the treshold to retain 2, 3, or n number of variables.
@@ -441,3 +441,4 @@ if __name__ == '__main__':
     # K-means with dimensionality reduction and 3 clusters
 
     kmeans_clustering(XPCA, 3, seed=args.random_seed, verbose=True, contingencyTable=True, see_plots=True, data_type=f"PCA reduction, seed {args.random_seed}")
+
