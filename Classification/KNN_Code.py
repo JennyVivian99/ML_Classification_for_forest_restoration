@@ -231,7 +231,7 @@ def variance_tresh_dim_reduction(dataset_training_mm, dataset_test_mm, variance_
     @returns: XVT_train and XVT_test datasets with dimensions reduced.
     """
     # Study variance of the scaled dataset
-    variance = np.var(dataset_training_mm)
+    variance = dataset_training_mm.var()
     if verbose:
         print("Variance:", variance)
     # Save to Excel file to analyse better and explore the treshold to retain 2, 3, or n number of variables.
@@ -509,3 +509,4 @@ if __name__ == '__main__':
     # KNN with P dimensionality reduction
 
     knn_classification(XP_train,Y_train,XP_test,Y_test,best_k=8,data_type=f'P dim reduction, seed {args.random_seed}', verbose=True,see_plots=False, save_plots=True)
+
