@@ -288,7 +288,7 @@ def variance_tresh_dim_reduction(dataset_original,variance_threshold, verbose=Fa
     X_transformed = ms.fit_transform(X)
     X_for_variance = pd.DataFrame(X_transformed, columns=X.columns)
     print(X_for_variance)
-    variance = np.var(X_for_variance)
+    variance = X_for_variance.var()
     if verbose:
         print("Variance:", variance)
     variance.to_csv("VarianceFeaturesClustering.csv") # Save to Excel file to analyse better and explore the treshold to retain 2, 3, or n number of variables.
@@ -443,3 +443,4 @@ if __name__ == '__main__':
     # AHC with PCA dimensionality reduction and Ward's linkage
 
     aggl_clust_skl(XPCA,method="ward",contingencyTable=True,verbose=True,data_type=f"PCA dim reduction, seed {args.random_seed}",max_d=None,n_clusters=2, see_plots=False, save_plots=True)
+
