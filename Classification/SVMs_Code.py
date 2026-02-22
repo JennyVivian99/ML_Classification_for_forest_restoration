@@ -231,7 +231,7 @@ def variance_tresh_dim_reduction(dataset_training_mm, dataset_test_mm, variance_
     @returns: XVT_train and XVT_test datasets with dimensions reduced.
     """
     # Study variance of the scaled dataset
-    variance = np.var(dataset_training_mm)
+    variance = dataset_training_mm.var()
     if verbose:
         print("Variance:", variance)
     # Save to Excel file to analyse better and explore the treshold to retain 2, 3, or n number of variables.
@@ -816,3 +816,4 @@ if __name__ == '__main__':
     SVMs_classification(data_train=XP_train,labels_train=Y_train,data_test=XP_test,labels_test=Y_test,kernel='rbf',see_plots=False,data_type=f"P dim reduction, with seed {args.random_seed}",C=10, gamma=0.001,confusion_matrix=True,verbose=True)
 
     
+
