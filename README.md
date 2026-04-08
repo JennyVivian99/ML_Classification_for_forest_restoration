@@ -10,5 +10,6 @@ Briefly, it includes:
 - ML classification
 - ML classification with merged classes of the wrongly assigned samples
 - Verification of the statistical difference among the accuracies calculated
+- NMDS plot
 
 Note: Data preprocessing, and standardisation/normalization are present in each code, along with the environment preparation
