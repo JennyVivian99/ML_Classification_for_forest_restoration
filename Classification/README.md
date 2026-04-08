@@ -7,3 +7,4 @@ The techniques considered are:
 In each code, data preprocessing and standardization/normalization are present.
 For Decision tree and Adaboost, the code also contains the analysis with merged classes, which was not implemented using KNN and SVMs, given
 their lower accuracy obtained with the original dataset compared to the other two algorithms.
+It is also reported the code related to the assessment of the statistical difference between accuracies and precisions.
