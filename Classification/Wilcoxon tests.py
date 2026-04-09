@@ -1,6 +1,35 @@
 # Mann-Whitman test
 # Import library
 import scipy.stats as stats
+import scikit_posthocs as sp
+import pandas as pd
+
+# Accuracy values original VS reduced dimensions
+# Define your data groups
+Original = [0.80,0.73,0.53,0.53,0.8,0.8,0.73,0.8,1,1,1,1,1,1,1,1]
+PCA_reduced = [0.40,0.6,0.66, 0.47,0.53,0.47,0.53,0.53, 0.6,0.47,0.47,0.53,0.6,0.47,0.47,0.53]
+VT_reduced = [0.93,0.93,0.93,0.8,1,1,1,1,1,1,1,1,1,1,1,1]
+P_reduced = [0.60,0.66,0.6,0.53,0.46,0.53,0.66,0.73,0.33,0.66,0.93,0.93,0.66,0.66,0.8,0.87]
+# Perform Kruskal-Wallis H-test
+statistic, p_value = stats.kruskal(Original, PCA_reduced, VT_reduced, P_reduced)
+
+print(f"H-statistic among ML techniques: {statistic}")
+print(f"P-value among ML techniques with all values: {p_value}")
+
+# Perform Dunn's Test
+# Write the data into a list for scikit-posthocs
+data = [Original, PCA_reduced, VT_reduced, P_reduced]
+
+# p_adjust is important to account for multiple comparisons (e.g., 'bonferroni' or 'holm')
+dunn_df = sp.posthoc_dunn(data, p_adjust='holm')
+
+# Rename columns/rows for clarity
+names = ['Original', 'PCA', 'VT', 'P_Reduced']
+dunn_df.columns = names
+dunn_df.index = names
+
+print("Dunn's Test P-value Matrix with all values:")
+print(dunn_df)
 
 # Accuracy values DT
 # x is 10_R, y is 24_R
@@ -119,7 +148,7 @@ x = [1,1,1,0.5,0.75,1,1,0.67,1,0.6]
 y = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 # Run Mann-Whitman test
 R10_R24 = stats.mannwhitneyu (x,y,alternative = "less")
-print("Precision mannwhitney per class DT",R10_R24.pvalue)
+print("Precision mannwhitney per class DT R10-R24",R10_R24.pvalue)
 
 # Class Precision values AdaBoost
 # x is 10_R class precision values, y is 24_R for the respective merged datasets
@@ -127,4 +156,4 @@ y = [1,1,1,1,1,1,1,1,1,1]
 x = [0.70, 0.57, 1, 1, 1, 1, 0.75, 0.67, 1, 1]
 # Run Mann-Whitman test
 R10_R24 = stats.mannwhitneyu (x,y,alternative = "less")
-print("Precision mannwhitney per class AdaBoost",R10_R24.pvalue)
+print("Precision mannwhitney per class AdaBoost R10-R24",R10_R24.pvalue)
